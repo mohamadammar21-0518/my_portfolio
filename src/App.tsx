@@ -1,7 +1,7 @@
 import ProjectCaption from './components/ProjectCaption'
 import { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion, MotionConfig, useReducedMotion, useScroll, useSpring } from 'framer-motion'
-import { Arrow, Reveal, SectionDecoration } from './components/Primitives'
+import { Arrow, ArrowDown, ChevronRight, Reveal, SectionDecoration } from './components/Primitives'
 import ProjectDetail, { type PortfolioProject } from './components/ProjectDetail'
 import ProjectVisual from './components/ProjectVisual'
 import { capabilities, credentials, education, experience, profile, projects, questions } from './content'
@@ -144,7 +144,7 @@ export default function App() {
       </button>
       <nav id="mobile-nav" className="mobile-nav" aria-label="Mobile navigation" hidden={!menuOpen}>
         {navigation.map(([name, id]) => (
-          <a key={id} href={`#${id}`} onClick={() => setMenuOpen(false)}>{name}<Arrow /></a>
+          <a key={id} href={`#${id}`} onClick={() => setMenuOpen(false)}>{name}<ChevronRight /></a>
         ))}
       </nav>
     </header>
@@ -180,10 +180,10 @@ export default function App() {
           <p>I’m a Data Science undergraduate at AIU focused on Applied AI. I build practical applications with language models, retrieval, voice AI, and machine learning, with an emphasis on clear results and human oversight.</p>
           <div className="hero-links">
             <a className="button" href={profile.linkedin} target="_blank" rel="noreferrer">Connect on LinkedIn <Arrow /></a>
-            <a className="button button-cv" href="/documents/mohamad-ammar-cv.pdf" download="Mohamad-Ammar-CV.pdf">Download CV <span aria-hidden="true">↓</span></a>
+            <a className="button button-cv" href="/documents/mohamad-ammar-cv.pdf" download="Mohamad-Ammar-CV.pdf">Download CV <ArrowDown /></a>
           </div>
         </div>
-        <a className="hero-scroll" href="#works" aria-label="Explore featured works">↓</a>
+        <a className="hero-scroll" href="#works" aria-label="Explore featured works"><ArrowDown /></a>
       </section>
 
       {/* ── Works ───────────────────────────────────────────────────── */}
@@ -289,7 +289,9 @@ export default function App() {
                 href={`mailto:${profile.email}?subject=${encodeURIComponent(`Let's talk about ${item.title}`)}`}
                 className={`service-card service-${i}`}
               >
-                <div className="service-title"><h3>{item.title}</h3><span aria-hidden="true">{item.glyph}</span></div>
+                <div className="service-title"><h3>{item.title}</h3><span aria-hidden="true">{item.glyph === '↗'
+                  ? <svg className="service-code-icon" viewBox="0 0 24 24" fill="none"><path d="m8 6-6 6 6 6m8-12 6 6-6 6" /></svg>
+                  : item.glyph}</span></div>
                 <div className="service-cta" aria-hidden="true">Let's build something <Arrow /></div>
                 <p>{item.description}</p>
                 <div className="service-images" aria-hidden="true">
@@ -386,7 +388,7 @@ export default function App() {
             <h2><span>Answers to common questions to help you understand</span> my work and how we can collaborate.</h2>
             <p className="contact-description">I’m looking for AI engineering and Applied AI internships, and I’m available for freelance AI and full-stack development projects. Get in touch to discuss a role or your project.</p>
             <a className="button" href={`mailto:${profile.email}`}>Discuss an opportunity <Arrow /></a>
-            <div className="contact-direct-links"><a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn <Arrow /></a><a href="/documents/mohamad-ammar-cv.pdf" download="Mohamad-Ammar-CV.pdf">Download CV ↓</a></div>
+            <div className="contact-direct-links"><a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn <Arrow /></a><a href="/documents/mohamad-ammar-cv.pdf" download="Mohamad-Ammar-CV.pdf">Download CV <ArrowDown /></a></div>
             <button className="copy-email" onClick={copyEmail}>Copy email address</button>
             <p className="copy-status" role="status">{copyStatus}</p>
           </Reveal>
@@ -425,10 +427,10 @@ export default function App() {
     <footer>
       <a href="#home" className="wordmark">Applied AI Portfolio</a>
       <div className="footer-links">
-        <a href={profile.github} target="_blank" rel="noreferrer">GitHub ↗</a>
-        <a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn ↗</a>
-        <a href={`mailto:${profile.email}`}>Email ↗</a>
-        <a href="#home">Back to top ↑</a>
+        <a href={profile.github} target="_blank" rel="noreferrer">GitHub <Arrow /></a>
+        <a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn <Arrow /></a>
+        <a href={`mailto:${profile.email}`}>Email <Arrow /></a>
+        <a href="#home">Back to top <ArrowDown /></a>
       </div>
       <p>© {new Date().getFullYear()} {profile.fullName}. AI Engineering · Data Science at AIU.</p>
     </footer>
