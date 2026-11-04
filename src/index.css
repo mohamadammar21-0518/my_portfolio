@@ -758,3 +758,90 @@ html[data-motion="off"] .card-enter { opacity: 1; transform: none; }
  .project-gallery-item { padding: 8px; }
  .project-gallery-item img { max-height: 76svh; }
 }
+
+/* Colour accents for the CV project collection. */
+.project-card.ghosttrace { background: #123d37; }
+.project-card.adaptiveflow { background: #34476d; }
+.project-card.motorbike-rental-ai { background: #604192; }
+.project-card.ghosttrace > img, .project-card.motorbike-rental-ai > img { object-fit: contain; object-position: center 12%; padding: 58px 20px 155px; }
+.project-card.ghosttrace:after { background: linear-gradient(transparent 20%, #082b29 85%); }
+.project-card.motorbike-rental-ai:after { background: linear-gradient(transparent 20%, #39275b 85%); }
+.service-0 { background: linear-gradient(145deg, #fff, #f2ebff); }
+.service-1 { background: linear-gradient(145deg, #fff, #eaf7f2); }
+.service-2 { background: linear-gradient(145deg, #fff, #eaf0ff); }
+.service-3 { background: linear-gradient(145deg, #fff, #fff2e6); }
+.service-4 { background: linear-gradient(145deg, #fff, #fceaf3); }
+.service-5 { background: linear-gradient(145deg, #fff, #e6f6fa); }
+.section-number { color: #7546b8; }
+.project-badge { box-shadow: 0 3px 12px #21143218; }
+@media (max-width: 600px) {
+ .project-card.ghosttrace > img, .project-card.motorbike-rental-ai > img { padding: 54px 12px 145px; }
+}
+
+/* Monochrome foundation with electric lime interaction accents. */
+:root { --neon: #c4f542; --ink: #111310; --purple: #516915; }
+::selection { background: #c4f542; color: #111310; }
+a:focus-visible, button:focus-visible, .project-card:focus-visible, .contact-direct-links a:focus-visible { outline-color: #516915; }
+.button { background: #111310; color: white; box-shadow: 0 8px 22px #11131018; }
+.button .arrow { color: #c4f542; }
+.button:hover { background: #c4f542; color: #111310; box-shadow: 0 8px 24px #8cad3228; }
+.button:hover .arrow { color: #111310; }
+.hero-links .button-cv { background: #fff; color: #111310; border-color: #d9ddd2; }
+.hero-links .button-cv:hover { background: #f0f5e6; }
+.availability { background: #f4f8ed; color: #37422a; border: 1px solid #e0e7d5; }
+.availability > span, .status-dot { background: #628321; box-shadow: 0 0 0 4px #c4f54244; }
+.reading-progress, .nav-indicator { background: #c4f542; }
+.hero-backdrop { background: radial-gradient(ellipse at 0% 35%, #c4f54218, transparent 42%), radial-gradient(ellipse at 100% 65%, #11131005, transparent 40%); }
+.hero-backdrop::before { background-image: radial-gradient(#626e48 .75px, transparent .75px); }
+.hero-line-art, .hero-line-art .line-art-secondary, .hero-node-art { stroke: #69754e; }
+.hero-line-art circle, .hero-node-art circle { fill: #c4f542; }
+.hero-spark-one, .hero-spark-two { color: #71833f; }
+.hero-orbit { border-color: #879b5126; box-shadow: 0 0 0 32px #a6c05b08, 0 0 0 64px #a6c05b05; }
+.section-number { color: #516915; }
+.project-filters button:hover { color: #344512; border-color: #97ad65; }
+.project-filters button.active { color: #111310; }
+.filter-surface { background: #c4f542; }
+.project-badge, .project-badge.is-selected { background: #f1f3ed; color: #272d20; }
+.project-badge.is-live { background: #c4f542; color: #1d280c; }
+.project-badge.is-ongoing { background: #e8eddc; color: #394725; }
+.project-card.ghosttrace, .project-card.adaptiveflow, .project-card.motorbike-rental-ai { background: #151813; }
+.project-card.ghosttrace:after, .project-card.motorbike-rental-ai:after { background: linear-gradient(transparent 20%, #111310 85%); }
+.project-view .arrow { color: #c4f542; }
+.service-card { background: #fafbf8; border-color: #e3e6dd; }
+.service-card:before { background: #141710; }
+.service-card:hover, .service-card:focus-visible { border-color: #7c963c; box-shadow: 0 14px 32px #11131016; }
+.service-title > span, .service-1 .service-title > span, .service-2 .service-title > span { color: #5f752d; }
+.service-card .service-cta { color: #c4f542; }
+.service-card:hover > p, .service-card:focus-visible > p { color: #e3e8da; }
+.service-card:hover .tags > span, .service-card:focus-visible .tags > span { color: #e3e8da; border-color: #566047; }
+.philosophy { background: #111310; }
+.quote-mark, .quote-initials { color: #c4f542; }
+.quote-source { color: #d3dfbd; }
+.highlight-mark span { color: #627c24; }
+.stat-pill > span:last-child:not(.status-dot) { background: #c4f542; color: #111310; }
+.about-profile { background: #f6f7f3; border-color: #e1e5d8; }
+.about-profile-focus { background: #e8efd9; color: #35451b; }
+.about-profile-label, .about-profile-link { color: #51642c; }
+.about-profile-facts { border-color: #dfe5d4; }
+.about-profile-facts strong { color: #202a14; }
+.case-summary, .case-stack span, .project-gallery-item { background: #f1f4eb; border-color: #e0e6d5; }
+.case-summary span, .case-stack span, .case-section h3 span { color: #50632b; }
+.case-evidence { background: #f0f6e4; }
+.section-decoration { background: none; }
+.section-decoration .decoration-halo { border-color: #8f9c7726; box-shadow: 0 0 0 30px #8f9c7708, 0 0 0 60px #8f9c7705; }
+.section-decoration .decoration-lines { stroke: #7c8c5b; }
+.section-decoration .decoration-lines circle { fill: #a9c862; }
+.section-decoration .decoration-star { color: #708b35; }
+.mobile-nav a:hover .chevron-right { color: #516915; }
+@media (hover: hover) {
+ .project-card:hover { box-shadow: 0 0 0 2px #c4f542, 0 16px 32px #11131018; }
+}
+
+.journey-date, .process-flower { color: #c4f542; }
+.journey-card:hover { background: #1b2015; }
+.about-profile-identity { background: linear-gradient(150deg, #eef2e6, #f8faf4); }
+.about-profile-identity:before { border-color: #9ba98055; box-shadow: 0 0 0 28px #9ba9800c, 0 0 0 56px #9ba98008; }
+.about-profile-identity h3, .about-profile-story h3 { color: #171b12; }
+.about-profile-identity h3 span, .about-profile-identity > p, .about-profile-story > p { color: #565d4c; }
+.about-profile-story h3 span { color: #526b21; }
+.about-profile-facts small, .about-profile-facts div > span { color: #5b6450; }

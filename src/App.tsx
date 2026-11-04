@@ -173,11 +173,11 @@ export default function App() {
         </div>
         <div className="hero-title">
           <p className="availability"><span />Open to internships &amp; freelance projects</p>
-          <h1>Applied AI. <br />Built for real use.</h1>
-          <p className="hero-role">Data Science Undergraduate · AI Engineering</p>
+          <h1>AI &amp; Machine Learning.<br />Intelligent Automation.</h1>
+          <p className="hero-role">Data Science Undergraduate · Class of 2027</p>
         </div>
         <div className="hero-intro">
-          <p>I’m a Data Science undergraduate at AIU focused on Applied AI. I build practical applications with language models, retrieval, voice AI, and machine learning, with an emphasis on clear results and human oversight.</p>
+          <p>I’m a Data Science undergraduate at Albukhary International University, graduating in October 2027. My projects combine Python, machine learning, retrieval, computer vision, and multi-agent systems. I’m seeking an internship in AI/ML engineering, AI systems, data science, or AI automation.</p>
           <div className="hero-links">
             <a className="button" href={profile.linkedin} target="_blank" rel="noreferrer">Connect on LinkedIn <Arrow /></a>
             <a className="button button-cv" href="/documents/mohamad-ammar-cv.pdf" download="Mohamad-Ammar-CV.pdf">Download CV <ArrowDown /></a>
@@ -191,7 +191,7 @@ export default function App() {
         <SectionDecoration variant="work" />
         <Reveal className="works-heading">
           <h2><span className="section-number">01 /</span> Selected projects</h2>
-          <p className="works-count">{projects.length} projects · AI systems, applications &amp; connected technology</p>
+          <p className="works-count">{projects.length} projects · AI, machine learning &amp; automation</p>
         </Reveal>
 
         <div className="project-filters" role="group" aria-label="Filter projects by category">
@@ -266,9 +266,9 @@ export default function App() {
           <Reveal delay={180}>
             <article className="highlight snapshot">
               <h3>Always learning.<br />Always building.</h3>
-              <div className="stat-pill"><span><strong>3.76</strong> academic CGPA</span><span aria-hidden="true">✦</span></div>
+              <div className="stat-pill"><span><strong>3.80</strong> academic CGPA</span><span aria-hidden="true">✦</span></div>
               <div className="stat-pill"><span>AI, data &amp; full-stack projects</span><span aria-hidden="true">✦</span></div>
-              <div className="stat-pill"><span>Mentored 66 student teams</span><span aria-hidden="true">✦</span></div>
+              <div className="stat-pill"><span>FoTLI 2026 Silver Award · WordBuddy</span><span aria-hidden="true">✦</span></div>
               <a href="#contact">Let's connect <Arrow /></a>
             </article>
           </Reveal>
@@ -280,7 +280,7 @@ export default function App() {
         <SectionDecoration variant="about" />
         <Reveal className="split-heading">
           <p className="section-label">Technical skills</p>
-          <h2>AI engineering, from retrieval and models to applications people can use. <span>Voice systems, multi-agent orchestration, explainable ML, and the software foundations that support them.</span></h2>
+          <h2>Skills across AI, machine learning, and automation. <span>Data analysis, retrieval systems, computer vision, voice assistants, and the engineering needed to deploy them.</span></h2>
         </Reveal>
         <div className="services">
           {capabilities.map((item, i) => (
@@ -310,17 +310,17 @@ export default function App() {
             <div className="about-profile-photo"><img src="/images/portrait.jpeg" alt="Mohamad Ammar" loading="lazy" width="719" height="1080" /></div>
             <h3>Mohamad Ammar<span>Mohamad Hassan</span></h3>
             <p>Data Science undergraduate<br />AIU · Malaysia</p>
-            <span className="about-profile-focus"><span aria-hidden="true">✦</span> Applied AI &amp; AI Engineering</span>
+            <span className="about-profile-focus"><span aria-hidden="true">✦</span> AI, Machine Learning &amp; Automation</span>
           </div>
           <div className="about-profile-story">
             <span className="about-profile-label">My approach</span>
-            <h3>Curiosity in the models.<br /><span>Purpose in the application.</span></h3>
-            <p>My focus is Applied AI: building useful systems around language models, retrieval, voice, and machine learning. I enjoy connecting the model to the wider product — its data, architecture, interface, and the people using it.</p>
-            <p>Through DocMind AI, LocalVoice CRM, and my student-success platform, I work on grounded answers, private AI workflows, and explainable predictions. Full-stack engineering and cloud deployment help me bring these ideas into practical applications, with clear results and human oversight.</p>
+            <h3>From data and models<br /><span>to useful AI systems.</span></h3>
+            <p>I study Data Science at Albukhary International University in Malaysia, with a CGPA of 3.80 / 4.00. My hands-on work spans data preprocessing, model development, AI applications, and cloud deployment.</p>
+            <p>Through DocMind AI, GhostTrace, AdaptiveFlow, and LocalVoice CRM, I work on grounded answers, verifiable data workflows, computer vision, and human-reviewed automation. Full-stack engineering and cloud deployment help me bring these ideas into practical applications, with clear results and human oversight.</p>
             <div className="about-profile-facts">
-              <div><strong>3.76 <small>/ 4.00</small></strong><span>Current CGPA</span></div>
-              <div><strong>2027</strong><span>Expected graduation</span></div>
-              <div><strong>Applied AI</strong><span>Career focus</span></div>
+              <div><strong>3.80 <small>/ 4.00</small></strong><span>Current CGPA</span></div>
+              <div><strong>Oct 2027</strong><span>Expected graduation</span></div>
+              <div><strong>AI / ML</strong><span>Engineering &amp; automation</span></div>
             </div>
             <a className="about-profile-link" href={profile.linkedin} target="_blank" rel="noreferrer">Connect on LinkedIn <Arrow /></a>
           </div>
@@ -386,7 +386,7 @@ export default function App() {
           <Reveal className="contact-intro">
             <p className="section-label">FAQs</p>
             <h2><span>Answers to common questions to help you understand</span> my work and how we can collaborate.</h2>
-            <p className="contact-description">I’m looking for AI engineering and Applied AI internships, and I’m available for freelance AI and full-stack development projects. Get in touch to discuss a role or your project.</p>
+            <p className="contact-description">I’m seeking internships in AI/ML engineering, AI systems, data science, and AI automation. I’m also available for freelance AI and full-stack development projects. Get in touch to discuss a role or your project.</p>
             <a className="button" href={`mailto:${profile.email}`}>Discuss an opportunity <Arrow /></a>
             <div className="contact-direct-links"><a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn <Arrow /></a><a href="/documents/mohamad-ammar-cv.pdf" download="Mohamad-Ammar-CV.pdf">Download CV <ArrowDown /></a></div>
             <button className="copy-email" onClick={copyEmail}>Copy email address</button>
@@ -425,14 +425,14 @@ export default function App() {
 
     {/* ── Footer ─────────────────────────────────────────────────── */}
     <footer>
-      <a href="#home" className="wordmark">Applied AI Portfolio</a>
+      <a href="#home" className="wordmark">AI &amp; ML Portfolio</a>
       <div className="footer-links">
         <a href={profile.github} target="_blank" rel="noreferrer">GitHub <Arrow /></a>
         <a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn <Arrow /></a>
         <a href={`mailto:${profile.email}`}>Email <Arrow /></a>
         <a href="#home">Back to top <ArrowDown /></a>
       </div>
-      <p>© {new Date().getFullYear()} {profile.fullName}. AI Engineering · Data Science at AIU.</p>
+      <p>© {new Date().getFullYear()} {profile.fullName}. AI, Machine Learning &amp; Automation · Data Science at AIU.</p>
     </footer>
 
     <ProjectDetail project={project} onClose={closeProject} onSelect={openProject} />
