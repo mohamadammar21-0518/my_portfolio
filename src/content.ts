@@ -1,7 +1,7 @@
 export const profile = {
   name: 'Mohamad Ammar',
   fullName: 'Mohamad Ammar Mohamad Hassan',
-  title: 'AI, Machine Learning & Automation',
+  title: 'Data Science, AI & Software Development',
   email: 'mohamedammar6650@gmail.com',
   linkedin: 'https://www.linkedin.com/in/mohamad-ammar-898825338/',
   github: 'https://github.com/mohamadammar21-0518',
@@ -11,13 +11,37 @@ export const profile = {
 
 export const projects = [
   {
+    name: 'Integrated Early-Warning System for Academic Performance', slug: 'student-success-ai', displayName: 'Academic Early-Warning System',
+    gallery: [{ image: 'student-success-dashboard-redacted.jpg', alt: 'Academic engagement dashboard with student details redacted', caption: 'Academic engagement prototype' }],
+    problem: 'Academic advisors need timely indicators of students who may need additional support.',
+    contribution: 'Developing classification algorithms and predictive models using historical engagement patterns and academic performance data.',
+    outcome: 'An ongoing final-year project exploring early identification of at-risk students.',
+    highlight: 'Final-year project · Predictive modelling', category: 'Machine learning', status: 'In development · Final-year project', date: '2026–Present',
+    repoUrl: null, liveUrl: null, tags: ['Classification', 'Predictive modelling', 'Engagement analysis'], image: 'student-success-photo.jpg', alt: 'Representative education project illustration',
+    description: 'A final-year project investigating early indicators of academic risk.',
+    overview: 'The project uses historical engagement patterns and academic performance data to develop classification and prediction methods for identifying students who may need support. Development is ongoing; no final model performance is claimed.',
+    focus: 'Academic engagement, predictive modelling, and advisor decision support',
+  },
+  {
+    name: 'WordBuddy · Adaptive Vocabulary Game', slug: 'wordbuddy', displayName: 'WordBuddy', gallery: [],
+    problem: 'Young learners benefit from engaging ways to practise vocabulary.',
+    contribution: 'Contributed as a team member to an adaptive AI-driven vocabulary game for young learners.',
+    outcome: 'Team received the FoTLI 2026 Silver Award on 14 October 2026.',
+    highlight: 'FoTLI 2026 · Team Silver Award', category: 'Apps & mobile', status: 'Team project', date: 'Oct 2026',
+    repoUrl: null, liveUrl: null, tags: ['Adaptive learning', 'Educational game', 'AI'], image: '', alt: '',
+    description: 'An adaptive AI-driven vocabulary game for young learners.',
+    overview: 'WordBuddy explores vocabulary learning through an adaptive AI-driven game. The team received the FoTLI 2026 Silver Award. The project brings together adaptive learning and an interactive game format for young learners.',
+    focus: 'Adaptive learning and educational interaction',
+  },
+
+  {
     name: 'GhostTrace · Personal-Data Deletion Assurance', slug: 'ghosttrace', displayName: 'GhostTrace', gallery: [],
     problem: 'Deleted personal data can reappear through backups or synchronization.',
     contribution: 'Built a Python/FastAPI system with temporal evidence analysis, policy-aware remediation, independent verification, and recovery drills.',
     outcome: 'A deletion-auditing prototype developed for HackerRank Orchestrate.',
     highlight: 'Deletion assurance · Evidence-based verification', category: 'AI & data',
-    status: 'Research prototype', date: '2026–Present', repoUrl: null, liveUrl: null,
-    tags: ['Python', 'FastAPI', 'Audit logging', 'Data privacy'], image: 'ghosttrace-demo.png', alt: 'GhostTrace demonstration interface with synthetic cases',
+    status: 'Research prototype', date: '2026–Present', repoUrl: 'https://github.com/mohamadammar21-0518/GhostTrace', liveUrl: null,
+    tags: ['Python', 'FastAPI', 'PostgreSQL', 'Audit logging'], image: 'ghosttrace-demo.png', alt: 'GhostTrace demonstration interface with synthetic cases',
     description: 'A system for auditing personal-data deletion and detecting possible reappearance.',
     overview: 'GhostTrace analyzes historical deletion evidence, checks for reappearance through backups or synchronization, and supports policy-aware remediation, independent verification, and recovery drills.',
     focus: 'Data deletion auditing, temporal evidence, and verifiable remediation',
@@ -28,7 +52,7 @@ export const projects = [
     contribution: 'Built a YOLOv8, OpenCV, and SUMO research prototype with transition rules, failure handling, and automated tests.',
     outcome: 'A simulation prototype for estimating queues and adjusting virtual signals.',
     highlight: 'Computer vision · Traffic simulation', category: 'AI & data',
-    status: 'Research prototype', date: '2026–Present', repoUrl: null, liveUrl: null,
+    status: 'Research prototype', date: 'Jul–Sep 2026', repoUrl: 'https://github.com/mohamadammar21-0518/Trafficlight_system', liveUrl: null,
     tags: ['YOLOv8', 'OpenCV', 'SUMO', 'Python'], image: 'adaptiveflow-reference.jpg', alt: 'Traffic-camera reference frame used in the AdaptiveFlow project',
     description: 'A research prototype for traffic sensing and priority-aware virtual signal control.',
     overview: 'AdaptiveFlow estimates vehicle queues with YOLOv8 and OpenCV, then adjusts virtual signals in SUMO. Scheduled priorities, signal-transition rules, failure handling, and automated tests support the simulation.',
@@ -38,12 +62,12 @@ export const projects = [
     name: 'AI-Powered Motorbike Rental Management System', slug: 'motorbike-rental-ai', displayName: 'Motorbike Rental AI', gallery: [],
     problem: 'Rental records, bookings, expenses, and partner calculations take time to manage manually.',
     contribution: 'Built a local Telegram assistant with n8n, Google Sheets, Ollama, and Faster Whisper for text and voice requests.',
-    outcome: 'Automated bookings, expenses, rental records, monthly summaries, and partner-share calculations.',
+    outcome: 'Locally tested booking, expense, rental-record, and summary workflows; month-end settlement is prepared but not active.',
     highlight: 'Telegram assistant · Local automation', category: 'AI & data',
-    status: 'In progress', date: '2026–Present', repoUrl: null, liveUrl: null,
+    status: 'Selected project', date: 'Jan–Feb 2026', repoUrl: 'https://github.com/mohamadammar21-0518/telegram_bikerental_bot', liveUrl: null,
     tags: ['n8n', 'Ollama', 'Telegram', 'Google Sheets'], image: 'motorbike-console.png', alt: 'Motorbike rental local test console',
     description: 'A locally operated assistant for motorbike rental management.',
-    overview: 'The Telegram assistant accepts text and voice requests through Faster Whisper and Ollama. n8n and Google Sheets workflows manage bookings, expenses, rental records, monthly summaries, and partner-share calculations.',
+    overview: 'The system includes a local browser backup interface. The Telegram assistant accepts text and voice requests through Faster Whisper and Ollama. n8n and Google Sheets workflows manage bookings, expenses, rental records, and summaries. Changes are previewed before saving; month-end settlement is prepared but not active.',
     focus: 'Voice AI, workflow automation, and operational reporting',
   },
   {
@@ -79,7 +103,7 @@ export const projects = [
     outcome: 'Deployed document Q&A with page-level citations and confidence scores; retrieval evaluated with RAGAS.',
     highlight: 'Deployed RAG · Page-level citations',
  category: 'AI & data',
-    status: 'Selected project', date: 'May–Jul 2026',
+    status: 'Selected project', date: 'Feb–Mar 2026',
     repoUrl: 'https://github.com/mohamadammar21-0518/DocMind-AI', liveUrl: 'https://docmind-frontend-817865882900.us-central1.run.app',
     tags: ['RAG', 'FastAPI', 'LangChain', 'ChromaDB', 'Google Cloud Run'], image: 'docmind.png', alt: 'Original DocMind AI project logo',
     description: 'A deployed document Q&A application that turns uploaded PDFs into a searchable, conversational knowledge source.',
@@ -91,14 +115,14 @@ export const projects = [
     displayName: 'LocalVoice CRM',
     gallery: [],
     problem: 'Voice-driven CRM updates need privacy and review before changing records.',
-    contribution: 'Built local speech recognition and Ollama processing with review before database updates.',
+    contribution: 'Built a local voice pipeline with Faster Whisper, a local LLM, and Piper TTS; proposed CRM actions require confirmation before database updates.',
     outcome: 'A local assistant retrieves CRM records and turns spoken requests into reviewable actions.',
     highlight: 'Local voice AI · Human confirmation',
  category: 'AI & data',
-    status: 'In progress', date: '2026', repoUrl: null, liveUrl: null,
-    tags: ['React', 'Node.js', 'MySQL', 'Ollama'], image: 'localvoice-photo.jpg', alt: 'LocalVoice CRM voice workflow illustration',
+    status: 'Selected project', date: 'Jun–Aug 2026', repoUrl: 'https://github.com/mohamadammar21-0518/LocalVoice_CRM', liveUrl: null,
+    tags: ['React', 'Node.js', 'MySQL', 'Faster Whisper', 'Piper TTS'], image: 'localvoice-photo.jpg', alt: 'LocalVoice CRM voice workflow illustration',
     description: 'A privacy-first, self-hosted CRM that turns spoken instructions into reviewable proposed actions.',
-    overview: 'A local speech recognition and Ollama pipeline retrieves CRM records and turns voice requests into proposed actions. A human confirms each database update. Built with React, Node.js, and MySQL.',
+    overview: 'Built with React, Node.js, and MySQL, the local voice pipeline uses Faster Whisper for speech-to-text, a local LLM for intent, and Piper for spoken replies. It retrieves CRM records and converts spoken requests into structured proposed actions. Every database update requires human confirmation.',
     focus: 'Local voice AI, privacy-first architecture, and approval before data changes',
   },
   {
@@ -112,10 +136,10 @@ export const projects = [
     outcome: 'Hult Prize national-finalist team; currently conducting research and preparing a research paper.',
     highlight: 'Software Lead · Hult Prize finalist',
  category: 'AI & data',
-    status: 'Software Lead · Hult Prize National Finalist', date: '2025–Present', repoUrl: null, liveUrl: null,
+    status: 'Software Lead · Hult Prize National Finalist', date: '2025–Present', repoUrl: 'https://github.com/mohamadammar21-0518/AquaSense', liveUrl: null,
     tags: ['Colorimetric AI', 'LoRaMesh', 'Sustainability'], image: 'aquasense-cover.jpg', alt: 'AquaSense water monitoring environment',
     description: 'An AI-driven colorimetric analysis project developed for the Hult Prize to make water-quality insights more accessible.',
-    overview: 'As Software Lead, I guide AI-assisted analysis workflows and LoRaMesh communication protocols, helping build a resilient foundation for field-ready sustainability monitoring. Team AquaSense was a national-level finalist in the Hult Prize AIU 2025/26 Inter-University Competition.',
+    overview: 'As Co-Founder and Software Lead, I work on AI-assisted colorimetric analysis and planned LoRaMesh communication. The public repository currently contains simulated image-to-concentration experiments comparing regression models; it does not establish accuracy on real water samples. Team AquaSense was a national-level finalist in the Hult Prize AIU 2025/26 Inter-University Competition.',
     focus: 'AI-assisted water analysis, connected systems, and sustainability technology',
   },
   {
@@ -131,7 +155,7 @@ export const projects = [
     outcome: 'Three calculation workflows with 30+ validation rules, history for 20 records, and two-page PDF reports.',
     highlight: '3 workflows · 30+ validation rules',
  category: 'Apps & mobile',
-    status: 'Selected project', date: '2025–2026',
+    status: 'Selected project', date: 'Aug–Sep 2026',
     repoUrl: 'https://github.com/mohamadammar21-0518/vancotrack', liveUrl: null,
     tags: ['Kotlin', 'Jetpack Compose', 'CameraX', 'ML Kit OCR'], image: 'tdm-app.jpg', alt: 'Actual TDM Insight Android application screenshot',
     description: 'A native Android therapeutic drug monitoring calculator for hospital pharmacy workflows.',
@@ -160,27 +184,28 @@ export const projects = [
 ]
 
 export const capabilities = [
-  { title: 'Programming', description: 'Python, SQL, C, Kotlin, TypeScript, and JavaScript for data, application, and mobile development.', tags: ['Python', 'SQL', 'Kotlin', 'TypeScript', 'JavaScript', 'C', 'PHP', 'HTML', 'CSS'], glyph: '⌘', images: ['t20-predictor-photo.jpg', 'tdm-app.jpg', 'docmind.png'] },
-  { title: 'Data & Machine Learning', description: 'From data processing and feature engineering through model development, evaluation, and clear visual analysis.', tags: ['XGBoost', 'scikit-learn', 'SHAP', 'PLS regression', 'Model evaluation'], glyph: '✳', images: ['t20-predictor-photo.jpg', 'docmind.png', 'supervity.png'] },
+  { title: 'Programming', description: 'Python, SQL, C, Kotlin, TypeScript, and JavaScript for data, application, and mobile development.', tags: ['Python', 'SQL', 'Kotlin', 'TypeScript', 'JavaScript', 'C', 'HTML', 'CSS'], glyph: '⌘', images: ['t20-predictor-photo.jpg', 'tdm-app.jpg', 'docmind.png'] },
+  { title: 'Data & Machine Learning', description: 'From data processing and feature engineering through model development, evaluation, and clear visual analysis.', tags: ['pandas', 'NumPy', 'Matplotlib', 'XGBoost', 'scikit-learn', 'PLS regression', 'Model evaluation'], glyph: '✳', images: ['t20-predictor-photo.jpg', 'docmind.png', 'supervity.png'] },
   { title: 'AI Systems', description: 'Building retrieval and language-model applications with hybrid search, multi-agent workflows, voice AI, and human review.', tags: ['RAG', 'BM25', 'LangChain', 'Sentence Transformers', 'Multi-agent', 'Human-in-the-loop'], glyph: '✦', images: ['docmind.png', 'localvoice-photo.jpg', 'supervity.png'] },
-  { title: 'Web & Backend', description: 'Creating full-stack products and APIs with modern React frameworks, typed services, and backend systems.', tags: ['React', 'Vite', 'Next.js', 'FastAPI', 'Django REST', 'Node.js', 'tRPC', 'MERN'], glyph: '↗', images: ['t20-predictor-photo.jpg', 'localvoice-photo.jpg', 'supervity.png'] },
+  { title: 'Web & Backend', description: 'Creating full-stack products and APIs with modern React frameworks, typed services, and backend systems.', tags: ['React', 'Vite', 'Next.js', 'FastAPI', 'Django REST', 'Node.js', 'Express', 'MERN'], glyph: '↗', images: ['t20-predictor-photo.jpg', 'localvoice-photo.jpg', 'supervity.png'] },
   { title: 'Vision & Mobile', description: 'Computer vision, vehicle detection and traffic simulation with YOLOv8, OpenCV, and SUMO, alongside native Android interfaces and on-device OCR.', tags: ['Jetpack Compose', 'MVVM', 'CameraX', 'ML Kit OCR', 'OpenCV', 'YOLOv8', 'SUMO'], glyph: '▣', images: ['tdm-app.jpg', 'docmind.png', 'docmind.png'] },
   { title: 'Data & Cloud', description: 'Relational and vector data stores, containerized applications, and cloud deployment foundations.', tags: ['PostgreSQL', 'MySQL', 'SQLite', 'ChromaDB', 'Google Cloud Run', 'Docker', 'SQLAlchemy'], glyph: '☁', images: ['docmind.png', 'supervity.png', 'docmind.png'] },
 ]
 
 export const education = [
   { title: 'Bachelor of Data Science', institution: 'Albukhary International University (AIU) · Malaysia', date: 'Oct 2024 – Oct 2027', detail: 'Current CGPA: 3.80 / 4.00. Relevant coursework includes Machine Learning, Data Structures and Algorithms, Database Management Systems, Big Data, Internet of Things, Software Engineering, Cloud Computing, Probability and Statistics, Mobile Development, and Data Mining.' },
-  { title: 'Foundation in Computing', institution: 'Albukhary International University (AIU) · Malaysia', date: 'Oct 2023 – Oct 2024', detail: 'Built the computing foundation leading into undergraduate data science and software development.' },
+  { title: 'Foundation in Computing', institution: 'Albukhary International University (AIU) · Malaysia', date: 'Oct 2023 – Oct 2024', detail: 'CGPA: 3.63 / 4.00. Built the computing foundation leading into undergraduate data science and software development.' },
 ]
 
 export const experience = [
-  { title: 'Software Lead · AquaSense', organization: 'Hult Prize project · National finalist', date: '2025 – Present', detail: 'Developing AI-based colorimetric analysis and LoRaMesh communication for water-quality monitoring. Currently conducting research and preparing a research paper with the Hult Prize national-finalist team.' },
+  { title: 'Generative AI Intern · Virtual', organization: 'Codomax Digital Solutions · India', date: 'Nov–Dec 2026', detail: 'Completing a one-month virtual internship focused on assigned generative AI tasks and practical implementation.' },
+  { title: 'Co-Founder · AquaSense', organization: 'Hult Prize project · National finalist', date: '2025 – Present', detail: 'Co-founded AquaSense and lead software development for AI-assisted colorimetric analysis and LoRaMesh communication in water-quality monitoring.' },
   { title: 'Student Mentor', organization: 'Kedah Maker Fair · Young Innovators Challenge', date: 'Aug 2025', detail: 'Mentored 66 teams from 20 schools developing AI-for-social-good prototypes in healthcare, education, and sustainability. Completed the Train the Trainer Workshop by Chumbaka Sdn Bhd.' },
   { title: 'Project Facilitator', organization: 'Net Zero Carbon Emission for Youth Leaders Programme', date: 'Mar 2024', detail: 'Coordinated youth engagement activities and workshops focused on sustainability, carbon neutrality, and climate action.' },
 ]
 
 export const credentials = {
-  certifications: ['Google Cloud · Cloud Computing Fundamentals', 'Python Programming', 'Machine Learning Fundamentals'],
+  certifications: ['Google Cloud Computing Foundations · Aug 2026', 'Google Cloud skill badges · Data, AI & infrastructure'],
   training: ['Full MERN Stack Bootcamp', 'Django REST Bootcamp', 'Modern Web Development Workshop · Frontend Edition', 'Train the Trainer Workshop'],
   activities: ['Treasurer · Sri Lankan Student Community', 'CNL Leadership Development Programme', 'University Sports'],
   strengths: ['Problem solving', 'Technical communication', 'Leadership', 'Mentorship', 'Collaboration'],
@@ -189,7 +214,7 @@ export const credentials = {
 }
 
 export const questions = [
-  ['Are you available for internships or freelance work?', 'Yes. I am seeking internships in AI/ML engineering, AI systems, data science, and AI automation. I am also open to freelance AI and full-stack development projects.'],
+  ['Are you available for internships or freelance work?', 'Yes. I am seeking internships in AI engineering, data science, machine learning, web development, and mobile development. I also welcome freelance software and automation projects.'],
   ['What are you studying?', 'I am completing a Bachelor of Data Science at Albukhary International University (AIU), Malaysia. My current CGPA is 3.80 / 4.00.'],
   ['What are you building now?', 'My current projects include AquaSense, GhostTrace, AdaptiveFlow, LocalVoice CRM, and a motorbike rental automation assistant.'],
   ['What areas do you build in?', 'My focus spans AI/ML engineering, AI systems, data science, and automation. My projects cover retrieval and vector search, machine learning, computer vision, multi-agent systems, voice assistants, and cloud deployment.'],

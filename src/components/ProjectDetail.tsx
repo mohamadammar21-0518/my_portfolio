@@ -1,7 +1,7 @@
 import ProjectCaption from './ProjectCaption'
 import { useEffect, useRef } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
-import { Arrow } from './Primitives'
+import { Arrow, Magnetic } from './Primitives'
 import { projects } from '../content'
 import ProjectVisual, { projectVisualCaption } from './ProjectVisual'
 
@@ -50,9 +50,11 @@ export default function ProjectDetail({ project, onClose, onSelect }: Props) {
     >
       {project && (
         <motion.div className="detail-page" key={project.slug} initial={{ opacity: 0, y: reduced ? 0 : 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .3, ease: [.22, 1, .36, 1] }}>
-          <button ref={closeButton} className="detail-close" onClick={onClose} aria-label="Close project">
-            <span aria-hidden="true">×</span>
-          </button>
+          <Magnetic className="detail-close-wrap" strength={12}>
+            <button ref={closeButton} className="detail-close" onClick={onClose} aria-label="Close project">
+              <span aria-hidden="true">×</span>
+            </button>
+          </Magnetic>
 
           {/* Hero image */}
           <div className={`detail-hero ${project.slug}`}>
@@ -86,7 +88,7 @@ export default function ProjectDetail({ project, onClose, onSelect }: Props) {
               <section className="case-section case-evidence">
                 <h3><span>06</span>Project evidence</h3>
                 <div>
-                  {!project.repoUrl && <p className="detail-evidence-note">{project.slug === 'aquasense' ? 'Explore the team’s Hult Prize recognition certificate.' : 'This project is in development. Public code and a live demo are not yet available.'}</p>}
+                  {!project.repoUrl && <p className="detail-evidence-note">{project.slug === 'aquasense' ? 'Explore the team’s Hult Prize recognition certificate.' : 'A public repository and live demo are not currently linked for this project.'}</p>}
                   <div className="detail-links">
                     {project.slug === 'aquasense' && <a className="button" href="/images/hult-prize-certificate.jpg" target="_blank" rel="noreferrer">Hult Prize certificate <Arrow /></a>}
                     {project.liveUrl && <a className="button" href={project.liveUrl} target="_blank" rel="noreferrer">Live application <Arrow /></a>}

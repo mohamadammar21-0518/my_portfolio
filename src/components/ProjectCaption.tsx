@@ -2,7 +2,7 @@ import type { PortfolioProject } from './ProjectDetail'
 import { Arrow } from './Primitives'
 
 export default function ProjectCaption({ project }: { project: PortfolioProject }) {
-  const ongoing = project.status.includes('progress') || project.status.includes('In progress')
+  const ongoing = /in progress|in development/i.test(project.status)
   return <>
     <span className={`project-badge ${ongoing ? 'is-ongoing' : project.liveUrl ? 'is-live' : 'is-selected'}`}>
       {ongoing ? 'In development' : project.liveUrl ? 'Live application' : project.slug === 'aquasense' ? 'Software Lead' : 'Selected project'}

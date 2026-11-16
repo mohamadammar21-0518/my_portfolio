@@ -1,12 +1,20 @@
+import EditorialHero from './components/EditorialHero'
 import ProjectCaption from './components/ProjectCaption'
 import { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion, MotionConfig, useReducedMotion, useScroll, useSpring } from 'framer-motion'
-import { Arrow, ArrowDown, ChevronRight, Reveal, SectionDecoration } from './components/Primitives'
+import { Arrow, ArrowDown, ChevronRight, Magnetic, Reveal, SectionDecoration, TiltCard } from './components/Primitives'
 import ProjectDetail, { type PortfolioProject } from './components/ProjectDetail'
 import ProjectVisual from './components/ProjectVisual'
 import { capabilities, credentials, education, experience, profile, projects, questions } from './content'
 
-const navigation = [['Work', 'works'], ['About', 'about'], ['Journey', 'journey'], ['Contact', 'contact']]
+const heroFocus = [
+  { label: 'RAG applications', text: 'Document answers with hybrid retrieval, reranking, and page-level citations.', slug: 'docmind-ai' },
+  { label: 'AI automation', text: 'Multi-agent workflows with policy checks and human review before action.', slug: 'ai-employee-revenue-command-center' },
+  { label: 'Web & mobile', text: 'Database-backed interfaces and Android applications with validation, OCR, and reviewed actions.', slug: 'tdm-insight' },
+  { label: 'Machine learning', text: 'Predictive modelling and interactive dashboards that make model outputs easier to explore.', slug: 't20-world-cup-ai' },
+]
+
+const navigation = [['Work', 'works'], ['Design', 'design'], ['About', 'about'], ['Journey', 'journey'], ['Contact', 'contact']]
 function projectFromHash() {
   return projects.find(project => window.location.hash === `#project/${project.slug}`) ?? null
 }
@@ -15,6 +23,7 @@ export default function App() {
   const reducedMotion = useReducedMotion()
   const { scrollYProgress } = useScroll()
   const readingProgress = useSpring(scrollYProgress, { stiffness: 180, damping: 30 })
+  const [focusIndex, setFocusIndex] = useState(0)
   const [menuOpen, setMenuOpen] = useState(false)
   const [headerHidden, setHeaderHidden] = useState(false)
   const [headerOverHero, setHeaderOverHero] = useState(true)
@@ -127,6 +136,7 @@ export default function App() {
     {/* ── Header ─────────────────────────────────────────────────── */}
     <header className={`header${headerOverHero ? ' header-over-hero' : ''}${headerHidden ? ' header-hidden' : ''}`}  onFocusCapture={() => setHeaderHidden(false)}>
       <a className="wordmark" href="#home" onClick={() => setMenuOpen(false)}>Mohamad Ammar</a>
+      <a className="header-email" href={`mailto:${profile.email}`}>{profile.email}</a>
       <nav className="desktop-nav" aria-label="Main navigation">
         {navigation.map(([name, id]) => (
           <a key={id} href={`#${id}`} aria-current={active === id ? 'location' : undefined}>{name}{active === id && <motion.span className="nav-indicator" layoutId="navigation-indicator" transition={{ type: 'spring', stiffness: 380, damping: 34 }} />}</a>
@@ -152,46 +162,29 @@ export default function App() {
     <main id="main">
 
       {/* ── Hero ────────────────────────────────────────────────────── */}
-      <section id="home" className="hero" ref={hero}>
-        <div className="hero-portrait">
-          <img src="/images/portrait.jpeg" alt="Mohamad Ammar" width="719" height="1080" />
-        </div>
-        <div className="hero-fade" />
-        <div className="hero-backdrop" aria-hidden="true">
-          <span className="hero-orbit" />
-          <svg className="hero-line-art" viewBox="0 0 360 260" fill="none">
-            <path d="M-25 190C45 230 65 55 150 85S260 205 385 30" />
-            <path className="line-art-secondary" d="M-30 220C55 255 85 92 155 112S265 225 380 70" />
-            <circle cx="150" cy="85" r="5" /><circle cx="261" cy="138" r="3" />
-          </svg>
-          <span className="hero-spark hero-spark-one">✦</span>
-          <span className="hero-spark hero-spark-two">✧</span>
-          <svg className="hero-node-art" viewBox="0 0 140 100" fill="none">
-            <path d="M15 75L60 25L120 65M60 25L70 85L120 65" />
-            <circle cx="15" cy="75" r="4" /><circle cx="60" cy="25" r="5" /><circle cx="120" cy="65" r="4" /><circle cx="70" cy="85" r="3" />
-          </svg>
-        </div>
-        <div className="hero-title">
-          <p className="availability"><span />Open to internships &amp; freelance projects</p>
-          <h1>AI &amp; Machine Learning.<br />Intelligent Automation.</h1>
-          <p className="hero-role">Data Science Undergraduate · Class of 2027</p>
-        </div>
-        <div className="hero-intro">
-          <p>I’m a Data Science undergraduate at Albukhary International University, graduating in October 2027. My projects combine Python, machine learning, retrieval, computer vision, and multi-agent systems. I’m seeking an internship in AI/ML engineering, AI systems, data science, or AI automation.</p>
-          <div className="hero-links">
-            <a className="button" href={profile.linkedin} target="_blank" rel="noreferrer">Connect on LinkedIn <Arrow /></a>
-            <a className="button button-cv" href="/documents/mohamad-ammar-cv.pdf" download="Mohamad-Ammar-CV.pdf">Download CV <ArrowDown /></a>
+      <section id="home" ref={hero}><EditorialHero /></section>
+      <section id="introduction" className="reference-intro section">
+        <div className="reference-label"><span>01</span><span>/introduction</span></div>
+        <Reveal><h2 className="intro-statement">Mohamad Ammar.<br /><span>Data Science, AI &amp; Software Development.</span></h2></Reveal>
+        <div className="intro-grid">
+          <img src="/images/editorial-portrait.jpeg" alt="Mohamad Ammar" loading="lazy" className="intro-photo" />
+          <div>
+          <div className="editorial-bio"><p>Data Science undergraduate at AIU, graduating in October 2027. I build predictive models, AI applications, and database-backed web and Android products. Seeking internships across AI, data science, web, and mobile development—and open to freelance work.</p>
+            <div className="hero-links"><a className="button" href="#works">Explore my work <Arrow /></a><a className="editorial-cv" href="/documents/mohamad-ammar-cv.pdf" download="Mohamad-Ammar-CV.pdf">Download CV <ArrowDown /></a><a className="editorial-cv" href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn <Arrow /></a></div>
+          </div>          <div className="hero-focus">
+            <div className="hero-focus-options" role="group" aria-label="Explore my AI focus areas">{heroFocus.map((item, index) => <button key={item.label} type="button" aria-pressed={focusIndex === index} onClick={() => setFocusIndex(index)}>{item.label}</button>)}</div>
+            <div className="hero-focus-detail" aria-live="polite"><p>{heroFocus[focusIndex].text}</p><a href={`#project/${heroFocus[focusIndex].slug}`}>Explore project <Arrow /></a></div>
+          </div>
           </div>
         </div>
-        <a className="hero-scroll" href="#works" aria-label="Explore featured works"><ArrowDown /></a>
       </section>
 
       {/* ── Works ───────────────────────────────────────────────────── */}
       <section id="works" className="section works">
         <SectionDecoration variant="work" />
         <Reveal className="works-heading">
-          <h2><span className="section-number">01 /</span> Selected projects</h2>
-          <p className="works-count">{projects.length} projects · AI, machine learning &amp; automation</p>
+          <h2><span className="section-number">02 /featured</span> Selected projects</h2>
+          <p className="works-count">{projects.length} projects · AI, data, web &amp; mobile</p>
         </Reveal>
 
         <div className="project-filters" role="group" aria-label="Filter projects by category">
@@ -211,28 +204,29 @@ export default function App() {
         <motion.div className="project-grid" layout>
           <AnimatePresence initial={false} mode="popLayout">
           {projects.filter(item => projectCategory === 'All projects' || item.category === projectCategory).map((item, i) => (
-            <motion.a
-              key={item.slug}
-              className={`project-card ${item.slug}`}
-              layout="position"
-              initial={{ opacity: 0, y: reducedMotion ? 0 : 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: .08 }}
-              exit={{ opacity: 0, scale: reducedMotion ? 1 : .98 }}
-              whileHover={reducedMotion ? undefined : { y: -2 }}
-              whileTap={reducedMotion ? undefined : { scale: .99 }}
-              transition={{ duration: .4, ease: [.22, 1, .36, 1], layout: { type: 'spring', stiffness: 240, damping: 30 } }}
-              href={`#project/${item.slug}`}
-              onClick={event => {
-                if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return
-                event.preventDefault()
-                openProject(item)
-              }}
-              aria-label={`Explore ${item.name}`}
-            >
-              <ProjectVisual project={item} eager={i < 2} />
-              <ProjectCaption project={item} />
-            </motion.a>
+            <TiltCard key={item.slug} className={`project-tilt ${i < 3 && projectCategory === 'All projects' ? 'featured-project' : ''}`}>
+              <motion.a
+                className={`project-card ${item.slug}`}
+                layout="position"
+                initial={{ opacity: 0, y: reducedMotion ? 0 : 16, scale: reducedMotion ? 1 : .985 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, amount: .08 }}
+                exit={{ opacity: 0, scale: reducedMotion ? 1 : .97 }}
+                whileHover={reducedMotion ? undefined : { y: -6 }}
+                whileTap={reducedMotion ? undefined : { scale: .985 }}
+                transition={{ duration: .45, ease: [.22, 1, .36, 1], layout: { type: 'spring', stiffness: 240, damping: 30 } }}
+                href={`#project/${item.slug}`}
+                onClick={event => {
+                  if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return
+                  event.preventDefault()
+                  openProject(item)
+                }}
+                aria-label={`Explore ${item.name}`}
+              >
+                <ProjectVisual project={item} eager={i < 2} />
+                <ProjectCaption project={item} />
+              </motion.a>
+            </TiltCard>
           ))}
           </AnimatePresence>
         </motion.div>
@@ -241,7 +235,7 @@ export default function App() {
         {/* Highlights row */}
         <div className="highlights">
           <Reveal>
-            <article className="highlight recognition">
+            <motion.article className="highlight recognition" whileHover={reducedMotion ? undefined : { y: -6 }} transition={{ type: 'spring', stiffness: 320, damping: 24 }}>
               <div className="highlight-mark" aria-hidden="true"><span>✳</span></div>
               <h3>Hult Prize National Finalist</h3>
               <p>Recognised with Team AquaSense at the Hult Prize AIU 2025/26 Inter-University Competition.</p>
@@ -250,10 +244,10 @@ export default function App() {
                 <img src="/images/hult-prize-certificate.jpg" alt="Certificate recognising Mohamad Ammar Mohamad Hassan as a member of a competing startup at the Hult Prize 2026 Malaysia National Competition" loading="lazy" width="3516" height="2479" />
                 <span>Hult Prize 2026 · Malaysia National Competition <Arrow /></span>
               </a>
-            </article>
+            </motion.article>
           </Reveal>
           <Reveal delay={100}>
-            <article className="highlight philosophy">
+            <motion.article className="highlight philosophy" whileHover={reducedMotion ? undefined : { y: -6 }} transition={{ type: 'spring', stiffness: 320, damping: 24 }}>
               <span className="quote-mark" aria-hidden="true">"</span>
               <p>“We can only see a short distance ahead, but we can see plenty there that needs to be done.”</p>
               <div className="quote-person">
@@ -261,18 +255,50 @@ export default function App() {
                 <div>Alan Turing<span>Computing Machinery and Intelligence · 1950</span></div>
               </div>
               <a className="quote-source" href="https://turingarchive.kings.cam.ac.uk/" target="_blank" rel="noreferrer">Read the source <Arrow /></a>
-            </article>
+            </motion.article>
           </Reveal>
           <Reveal delay={180}>
-            <article className="highlight snapshot">
+            <motion.article className="highlight snapshot" whileHover={reducedMotion ? undefined : { y: -6 }} transition={{ type: 'spring', stiffness: 320, damping: 24 }}>
               <h3>Always learning.<br />Always building.</h3>
-              <div className="stat-pill"><span><strong>3.80</strong> academic CGPA</span><span aria-hidden="true">✦</span></div>
-              <div className="stat-pill"><span>AI, data &amp; full-stack projects</span><span aria-hidden="true">✦</span></div>
-              <div className="stat-pill"><span>FoTLI 2026 Silver Award · WordBuddy</span><span aria-hidden="true">✦</span></div>
+              <motion.div className="stat-pill" whileHover={reducedMotion ? undefined : { x: 4 }}><span><strong>3.80</strong> academic CGPA</span><span aria-hidden="true">✦</span></motion.div>
+              <motion.div className="stat-pill" whileHover={reducedMotion ? undefined : { x: 4 }}><span>AI, data &amp; full-stack projects</span><span aria-hidden="true">✦</span></motion.div>
+              <motion.div className="stat-pill" whileHover={reducedMotion ? undefined : { x: 4 }}><span>FoTLI 2026 Silver Award · WordBuddy</span><span aria-hidden="true">✦</span></motion.div>
               <a href="#contact">Let's connect <Arrow /></a>
-            </article>
+            </motion.article>
           </Reveal>
         </div>
+      </section>
+
+      {/* Product design evidence from applications I built. */}
+      <section id="design" className="design-section section" aria-labelledby="design-title">
+        <Reveal className="design-heading">
+          <div>
+            <p className="section-label">Interface design / selected work</p>
+            <h2 id="design-title">Built to be<br /><em>understood.</em></h2>
+          </div>
+          <p>My design approach starts with the decision a person needs to make. I shape the interface around clear states, useful feedback, and a path from complex systems to confident action.</p>
+        </Reveal>
+        <div className="design-gallery">
+          <Reveal className="design-feature design-feature-wide">
+            <a href="#project/docmind-ai" onClick={event => { event.preventDefault(); openProject(projects.find(item => item.slug === 'docmind-ai')!) }} aria-label="Explore DocMind AI project details">
+              <div className="design-image design-image-docmind"><img src="/images/project-gallery/docmind-chat-upload.png" alt="DocMind AI document chat interface with clear upload and suggested question actions" loading="lazy" /></div>
+              <div className="design-feature-copy"><span>01 / DOCUMENT INTELLIGENCE</span><h3>Make the next step obvious.</h3><p>DocMind AI brings document upload, suggested prompts, and source-grounded answers into one focused workspace.</p><span className="design-feature-link">View project <Arrow /></span></div>
+            </a>
+          </Reveal>
+          <Reveal className="design-feature" delay={80}>
+            <a href="#project/ai-employee-revenue-command-center" onClick={event => { event.preventDefault(); openProject(projects.find(item => item.slug === 'ai-employee-revenue-command-center')!) }} aria-label="Explore AI Employee project details">
+              <div className="design-image design-image-employee"><img src="/images/project-gallery/ai-employee-operators.png" alt="AI Employee operator dashboard with distinct workflow cards and status labels" loading="lazy" /></div>
+              <div className="design-feature-copy"><span>02 / WORKFLOW VISIBILITY</span><h3>Show what the system is doing.</h3><p>Operator cards and status labels make a multi-agent workflow easier to scan and review.</p><span className="design-feature-link">View project <Arrow /></span></div>
+            </a>
+          </Reveal>
+          <Reveal className="design-feature" delay={140}>
+            <a href="#project/tdm-insight" onClick={event => { event.preventDefault(); openProject(projects.find(item => item.slug === 'tdm-insight')!) }} aria-label="Explore VancoTrack project details">
+              <div className="design-image design-image-vanco"><img src="/images/project-gallery/vancotrack-results-screen.jpg" alt="VancoTrack mobile results screen with grouped pharmacokinetic outputs and review notes" loading="lazy" /></div>
+              <div className="design-feature-copy"><span>03 / MOBILE CLARITY</span><h3>Turn dense results into readable steps.</h3><p>VancoTrack groups calculations, explanations, and review notes so users can inspect each result.</p><span className="design-feature-link">View project <Arrow /></span></div>
+            </a>
+          </Reveal>
+        </div>
+        <div className="design-principles" aria-label="My interface design principles"><span>Clear hierarchy</span><span>Meaningful feedback</span><span>Accessible interaction</span><span>Human review</span></div>
       </section>
 
       {/* ── About / Skills ──────────────────────────────────────────── */}
@@ -285,9 +311,12 @@ export default function App() {
         <div className="services">
           {capabilities.map((item, i) => (
             <Reveal key={item.title} delay={i * 90}>
-              <a
+              <motion.a
                 href={`mailto:${profile.email}?subject=${encodeURIComponent(`Let's talk about ${item.title}`)}`}
                 className={`service-card service-${i}`}
+                whileHover={reducedMotion ? undefined : { y: -10, scale: 1.01 }}
+                whileTap={reducedMotion ? undefined : { scale: .985 }}
+                transition={{ type: 'spring', stiffness: 280, damping: 22 }}
               >
                 <div className="service-title"><h3>{item.title}</h3><span aria-hidden="true">{item.glyph === '↗'
                   ? <svg className="service-code-icon" viewBox="0 0 24 24" fill="none"><path d="m8 6-6 6 6 6m8-12 6 6-6 6" /></svg>
@@ -296,34 +325,36 @@ export default function App() {
                 <p>{item.description}</p>
                 <div className="service-images" aria-hidden="true">
                   {item.images.map((image, index) => (
-                    <img key={image} src={`/images/${image}`} alt="" loading="lazy" style={{ '--image-index': index } as React.CSSProperties} />
+                    <img key={`${image}-${index}`} src={`/images/${image}`} alt="" loading="lazy" style={{ '--image-index': index } as React.CSSProperties} />
                   ))}
                 </div>
                 <div className="tags">{item.tags.map(tag => <span key={tag}>{tag}</span>)}<span>+more</span></div>
-              </a>
+              </motion.a>
             </Reveal>
           ))}
         </div>
-        <Reveal className="about-profile">
-          <div className="about-profile-identity">
-            <span className="about-profile-label">A little about me</span>
-            <div className="about-profile-photo"><img src="/images/portrait.jpeg" alt="Mohamad Ammar" loading="lazy" width="719" height="1080" /></div>
-            <h3>Mohamad Ammar<span>Mohamad Hassan</span></h3>
-            <p>Data Science undergraduate<br />AIU · Malaysia</p>
-            <span className="about-profile-focus"><span aria-hidden="true">✦</span> AI, Machine Learning &amp; Automation</span>
-          </div>
-          <div className="about-profile-story">
-            <span className="about-profile-label">My approach</span>
-            <h3>From data and models<br /><span>to useful AI systems.</span></h3>
-            <p>I study Data Science at Albukhary International University in Malaysia, with a CGPA of 3.80 / 4.00. My hands-on work spans data preprocessing, model development, AI applications, and cloud deployment.</p>
-            <p>Through DocMind AI, GhostTrace, AdaptiveFlow, and LocalVoice CRM, I work on grounded answers, verifiable data workflows, computer vision, and human-reviewed automation. Full-stack engineering and cloud deployment help me bring these ideas into practical applications, with clear results and human oversight.</p>
-            <div className="about-profile-facts">
-              <div><strong>3.80 <small>/ 4.00</small></strong><span>Current CGPA</span></div>
-              <div><strong>Oct 2027</strong><span>Expected graduation</span></div>
-              <div><strong>AI / ML</strong><span>Engineering &amp; automation</span></div>
+        <Reveal>
+          <motion.div className="about-profile" whileHover={reducedMotion ? undefined : { y: -4 }} transition={{ type: 'spring', stiffness: 280, damping: 24 }}>
+            <div className="about-profile-identity">
+              <span className="about-profile-label">A little about me</span>
+              <div className="about-profile-photo"><img src="/images/portrait.jpeg" alt="Mohamad Ammar" loading="lazy" width="719" height="1080" /></div>
+              <h3>Mohamad Ammar<span>Mohamad Hassan</span></h3>
+              <p>Data Science undergraduate<br />AIU · Malaysia</p>
+              <span className="about-profile-focus"><span aria-hidden="true">✦</span> AI, Machine Learning &amp; Automation</span>
             </div>
-            <a className="about-profile-link" href={profile.linkedin} target="_blank" rel="noreferrer">Connect on LinkedIn <Arrow /></a>
-          </div>
+            <div className="about-profile-story">
+              <span className="about-profile-label">My approach</span>
+              <h3>From data and models<br /><span>to useful AI systems.</span></h3>
+              <p>I study Data Science at Albukhary International University in Malaysia, with a CGPA of 3.80 / 4.00. I’m currently completing a virtual Generative AI internship with Codomax Digital Solutions and building practical AI applications.</p>
+              <p>My projects include document Q&amp;A with source citations, multi-agent revenue workflows, local voice assistants, and computer vision prototypes. I connect models to usable products with APIs, data systems, evaluation, and human review.</p>
+              <div className="about-profile-facts">
+                <div><strong>3.80 <small>/ 4.00</small></strong><span>Current CGPA</span></div>
+                <div><strong>Oct 2027</strong><span>Expected graduation</span></div>
+                <div><strong>AI / ML</strong><span>Engineering &amp; automation</span></div>
+              </div>
+              <Magnetic strength={10}><a className="about-profile-link" href={profile.linkedin} target="_blank" rel="noreferrer">Connect on LinkedIn <Arrow /></a></Magnetic>
+            </div>
+          </motion.div>
         </Reveal>
       </section>
 
@@ -332,7 +363,7 @@ export default function App() {
         <SectionDecoration variant="journey" />
         <Reveal className="split-heading">
           <p className="section-label">Education &amp; journey</p>
-          <h2>Learning through data, product work, and community leadership. <span>My path combines a Data Science education with hands-on projects and mentoring young innovators.</span></h2>
+          <h2>Learning through data, product work, and community leadership. <span>My path combines Data Science studies, a Generative AI internship, hands-on projects, and mentoring young innovators.</span></h2>
         </Reveal>
         <div className="journey-layout">
           <div className="journey-education">
@@ -351,31 +382,37 @@ export default function App() {
             <h3>Leadership &amp; experience</h3>
             {experience.map((item, i) => (
               <Reveal key={item.title} delay={i * 70}>
-                <article className="process-card journey-card">
+                <motion.article
+                  className="process-card journey-card"
+                  whileHover={reducedMotion ? undefined : { y: -4, borderColor: '#999999' }}
+                  transition={{ type: 'spring', stiffness: 300, damping: 24 }}
+                >
                   <span className="journey-date">{item.date}</span>
                   <h4>{item.title}</h4>
                   <p className="journey-org">{item.organization}</p>
                   <p>{item.detail}</p>
-                </article>
+                </motion.article>
               </Reveal>
             ))}
           </div>
         </div>
         <div className="credentials-grid">
-          <article className="credential-card">
-            <h3>Certifications &amp; training</h3>
-            {[...credentials.certifications, ...credentials.training].map(item => <span key={item}>{item}</span>)}
-          </article>
-          <article className="credential-card">
-            <h3>Campus &amp; community</h3>
-            {credentials.activities.map(item => <span key={item}>{item}</span>)}
-          </article>
-          <article className="credential-card">
-            <h3>Languages, interests &amp; strengths</h3>
-            <p>{credentials.languages.join(' · ')}</p>
-            <p>{credentials.interests.join(' · ')}</p>
-            <p className="credential-strengths">{credentials.strengths.join(' · ')}</p>
-          </article>
+          {[
+            { title: 'Certifications & training', body: [...credentials.certifications, ...credentials.training].map(item => <span key={item}>{item}</span>) },
+            { title: 'Campus & community', body: credentials.activities.map(item => <span key={item}>{item}</span>) },
+            { title: 'Languages, interests & strengths', body: <>
+              <p>{credentials.languages.join(' · ')}</p>
+              <p>{credentials.interests.join(' · ')}</p>
+              <p className="credential-strengths">{credentials.strengths.join(' · ')}</p>
+            </> },
+          ].map((card, i) => (
+            <Reveal key={card.title} delay={i * 80}>
+              <motion.article className="credential-card" whileHover={reducedMotion ? undefined : { y: -5 }} transition={{ type: 'spring', stiffness: 300, damping: 24 }}>
+                <h3>{card.title}</h3>
+                {card.body}
+              </motion.article>
+            </Reveal>
+          ))}
         </div>
       </section>
 
@@ -384,18 +421,27 @@ export default function App() {
         <SectionDecoration variant="contact" />
         <div className="faq-layout">
           <Reveal className="contact-intro">
-            <p className="section-label">FAQs</p>
-            <h2><span>Answers to common questions to help you understand</span> my work and how we can collaborate.</h2>
-            <p className="contact-description">I’m seeking internships in AI/ML engineering, AI systems, data science, and AI automation. I’m also available for freelance AI and full-stack development projects. Get in touch to discuss a role or your project.</p>
-            <a className="button" href={`mailto:${profile.email}`}>Discuss an opportunity <Arrow /></a>
-            <div className="contact-direct-links"><a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn <Arrow /></a><a href="/documents/mohamad-ammar-cv.pdf" download="Mohamad-Ammar-CV.pdf">Download CV <ArrowDown /></a></div>
+            <p className="section-label">Have an opportunity?</p>
+            <h2>Let’s build<br /><span>something useful.</span></h2>
+            <p className="contact-description">I’m seeking internships in AI engineering, data science, machine learning, web development, and mobile development. I’m also available for freelance applications and automation projects. Get in touch to discuss a role or your project.</p>
+            <Magnetic><a className="button" href={`mailto:${profile.email}`}>Discuss an opportunity <Arrow /></a></Magnetic>
+            <div className="contact-direct-links">
+              <Magnetic strength={10}><a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn <Arrow /></a></Magnetic>
+              <Magnetic strength={10}><a href="/documents/mohamad-ammar-cv.pdf" download="Mohamad-Ammar-CV.pdf">Download CV <ArrowDown /></a></Magnetic>
+            </div>
             <button className="copy-email" onClick={copyEmail}>Copy email address</button>
             <p className="copy-status" role="status">{copyStatus}</p>
           </Reveal>
           <Reveal className="faq-panel">
             <span className="faq-badge">Internships & freelance enquiries</span>
             {questions.map(([question, answer], i) => (
-              <div key={question} className={`faq ${openFaq === i ? 'expanded' : ''}`}>
+              <motion.div
+                key={question}
+                className={`faq ${openFaq === i ? 'expanded' : ''}`}
+                layout
+                whileHover={reducedMotion ? undefined : { y: -2 }}
+                transition={{ layout: { type: 'spring', stiffness: 320, damping: 30 } }}
+              >
                 <h3>
                   <button
                     id={`question-${i}`}
@@ -415,7 +461,7 @@ export default function App() {
                 >
                   <div><p>{answer}</p></div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </Reveal>
         </div>
@@ -424,7 +470,7 @@ export default function App() {
     </main>
 
     {/* ── Footer ─────────────────────────────────────────────────── */}
-    <footer>
+    <footer className="reference-footer">
       <a href="#home" className="wordmark">AI &amp; ML Portfolio</a>
       <div className="footer-links">
         <a href={profile.github} target="_blank" rel="noreferrer">GitHub <Arrow /></a>

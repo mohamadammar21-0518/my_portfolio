@@ -5,15 +5,18 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['Geist', 'Arial', 'sans-serif'],
+        display: ['Geist', 'Arial', 'sans-serif'],
       },
       colors: {
         bg:      '#0c0c0c',
         card:    '#141414',
         card2:   '#1c1c1c',
-        accent:  '#e8ff00',
-        muted:   '#666666',
+        accent:  '#ff6a1a',
+        secondary: '#ffb347',
+        muted:   '#7a6d64',
         dim:     '#3a3a3a',
+        paper:   '#fffaf6',
         border:  'rgba(255,255,255,0.07)',
       },
       letterSpacing: {
@@ -31,8 +34,8 @@ const config: Config = {
         marquee:    { from: { transform: 'translateX(0)' }, to: { transform: 'translateX(-50%)' } },
         marqueeRev: { from: { transform: 'translateX(-50%)' }, to: { transform: 'translateX(0)' } },
         blink: {
-          '0%,100%': { boxShadow: '0 0 6px #00e676' },
-          '50%':     { boxShadow: '0 0 16px #00e676, 0 0 28px #00e676' },
+          '0%,100%': { boxShadow: '0 0 6px #ff6a1a' },
+          '50%':     { boxShadow: '0 0 16px #ff6a1a, 0 0 28px #ffb347' },
         },
         scrollDrop: {
           '0%':   { transform: 'scaleY(0)', transformOrigin: 'top', opacity: '1' },
