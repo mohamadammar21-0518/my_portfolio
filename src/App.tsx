@@ -165,14 +165,14 @@ export default function App() {
       <section id="home" ref={hero}><EditorialHero /></section>
       <section id="introduction" className="reference-intro section">
         <div className="reference-label"><span>01</span><span>/introduction</span></div>
-        <Reveal><h2 className="intro-statement">Mohamad Ammar.<br /><span>Data Science, AI &amp; Software Development.</span></h2></Reveal>
+        <Reveal><h2 className="intro-statement">Curious about data.<br /><span>Focused on making it useful.</span></h2></Reveal>
         <div className="intro-grid">
           <img src="/images/editorial-portrait.jpeg" alt="Mohamad Ammar" loading="lazy" className="intro-photo" />
           <div>
-          <div className="editorial-bio"><p>Data Science undergraduate at AIU, graduating in October 2027. I build predictive models, AI applications, and database-backed web and Android products. Seeking internships across AI, data science, web, and mobile development—and open to freelance work.</p>
+          <div className="editorial-bio"><p>I’m Mohamad Ammar, a Data Science undergraduate building AI tools, predictive models, and web and mobile applications. I’m open to internships and freelance projects where I can turn ideas into useful software.</p>
             <div className="hero-links"><a className="button" href="#works">Explore my work <Arrow /></a><a className="editorial-cv" href="/documents/mohamad-ammar-cv.pdf" download="Mohamad-Ammar-CV.pdf">Download CV <ArrowDown /></a><a className="editorial-cv" href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn <Arrow /></a></div>
           </div>          <div className="hero-focus">
-            <div className="hero-focus-options" role="group" aria-label="Explore my AI focus areas">{heroFocus.map((item, index) => <button key={item.label} type="button" aria-pressed={focusIndex === index} onClick={() => setFocusIndex(index)}>{item.label}</button>)}</div>
+            <div className="hero-focus-options" role="group" aria-label="Explore my project focus areas">{heroFocus.map((item, index) => <button key={item.label} type="button" aria-pressed={focusIndex === index} onClick={() => setFocusIndex(index)}>{item.label}</button>)}</div>
             <div className="hero-focus-detail" aria-live="polite"><p>{heroFocus[focusIndex].text}</p><a href={`#project/${heroFocus[focusIndex].slug}`}>Explore project <Arrow /></a></div>
           </div>
           </div>
@@ -340,17 +340,17 @@ export default function App() {
               <div className="about-profile-photo"><img src="/images/portrait.jpeg" alt="Mohamad Ammar" loading="lazy" width="719" height="1080" /></div>
               <h3>Mohamad Ammar<span>Mohamad Hassan</span></h3>
               <p>Data Science undergraduate<br />AIU · Malaysia</p>
-              <span className="about-profile-focus"><span aria-hidden="true">✦</span> AI, Machine Learning &amp; Automation</span>
+              <span className="about-profile-focus"><span aria-hidden="true">✦</span> Data Science, AI &amp; Software</span>
             </div>
             <div className="about-profile-story">
               <span className="about-profile-label">My approach</span>
-              <h3>From data and models<br /><span>to useful AI systems.</span></h3>
+              <h3>From data and models<br /><span>to practical applications.</span></h3>
               <p>I study Data Science at Albukhary International University in Malaysia, with a CGPA of 3.80 / 4.00. I’m currently completing a virtual Generative AI internship with Codomax Digital Solutions and building practical AI applications.</p>
-              <p>My projects include document Q&amp;A with source citations, multi-agent revenue workflows, local voice assistants, and computer vision prototypes. I connect models to usable products with APIs, data systems, evaluation, and human review.</p>
+              <p>My projects range from predictive models and document Q&amp;A to voice-driven CRM tools and native Android applications. I focus on clear interfaces, careful validation, and human review where decisions need oversight.</p>
               <div className="about-profile-facts">
                 <div><strong>3.80 <small>/ 4.00</small></strong><span>Current CGPA</span></div>
                 <div><strong>Oct 2027</strong><span>Expected graduation</span></div>
-                <div><strong>AI / ML</strong><span>Engineering &amp; automation</span></div>
+                <div><strong>Data + Apps</strong><span>Models, APIs &amp; interfaces</span></div>
               </div>
               <Magnetic strength={10}><a className="about-profile-link" href={profile.linkedin} target="_blank" rel="noreferrer">Connect on LinkedIn <Arrow /></a></Magnetic>
             </div>
@@ -478,7 +478,7 @@ export default function App() {
         <a href={`mailto:${profile.email}`}>Email <Arrow /></a>
         <a href="#home">Back to top <ArrowDown /></a>
       </div>
-      <p>© {new Date().getFullYear()} {profile.fullName}. AI, Machine Learning &amp; Automation · Data Science at AIU.</p>
+      <p>© {new Date().getFullYear()} {profile.fullName}. Data Science, AI &amp; Software · Data Science at AIU.</p>
     </footer>
 
     <ProjectDetail project={project} onClose={closeProject} onSelect={openProject} />

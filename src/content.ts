@@ -198,7 +198,7 @@ export const education = [
 ]
 
 export const experience = [
-  { title: 'Generative AI Intern · Virtual', organization: 'Codomax Digital Solutions · India', date: 'Nov–Dec 2026', detail: 'Completing a one-month virtual internship focused on assigned generative AI tasks and practical implementation.' },
+  { title: 'Generative AI Intern · Virtual', organization: 'Codomax Digital Solutions · India', date: 'Nov 2026 – Present', detail: 'Completing a one-month virtual generative AI internship, scheduled to end on 3 December 2026.' },
   { title: 'Co-Founder · AquaSense', organization: 'Hult Prize project · National finalist', date: '2025 – Present', detail: 'Co-founded AquaSense and lead software development for AI-assisted colorimetric analysis and LoRaMesh communication in water-quality monitoring.' },
   { title: 'Student Mentor', organization: 'Kedah Maker Fair · Young Innovators Challenge', date: 'Aug 2025', detail: 'Mentored 66 teams from 20 schools developing AI-for-social-good prototypes in healthcare, education, and sustainability. Completed the Train the Trainer Workshop by Chumbaka Sdn Bhd.' },
   { title: 'Project Facilitator', organization: 'Net Zero Carbon Emission for Youth Leaders Programme', date: 'Mar 2024', detail: 'Coordinated youth engagement activities and workshops focused on sustainability, carbon neutrality, and climate action.' },
@@ -216,8 +216,8 @@ export const credentials = {
 export const questions = [
   ['Are you available for internships or freelance work?', 'Yes. I am seeking internships in AI engineering, data science, machine learning, web development, and mobile development. I also welcome freelance software and automation projects.'],
   ['What are you studying?', 'I am completing a Bachelor of Data Science at Albukhary International University (AIU), Malaysia. My current CGPA is 3.80 / 4.00.'],
-  ['What are you building now?', 'My current projects include AquaSense, GhostTrace, AdaptiveFlow, LocalVoice CRM, and a motorbike rental automation assistant.'],
-  ['What areas do you build in?', 'My focus spans AI/ML engineering, AI systems, data science, and automation. My projects cover retrieval and vector search, machine learning, computer vision, multi-agent systems, voice assistants, and cloud deployment.'],
+  ['What are you building now?', 'My ongoing work includes an academic early-warning system for my final-year project, AquaSense water-quality analysis, and GhostTrace deletion auditing.'],
+  ['What areas do you build in?', 'I work across data science, machine learning, AI automation, and web and mobile development. My projects include predictive models, document retrieval, voice assistants, database-backed web applications, and Android tools.'],
   ['How do you approach responsible AI?', 'I build in clear explanations and human review. For example, GhostTrace uses evidence-based verification, and my AI Employee workflows include policy checks and human review.'],
   ['What experience do you have mentoring?', 'At the Kedah Maker Fair Young Innovators Challenge, I mentored 66 teams from 20 schools developing AI-for-social-good prototypes.'],
   ['What is the best way to reach you?', 'Email me at mohamedammar6650@gmail.com or connect on LinkedIn.'],

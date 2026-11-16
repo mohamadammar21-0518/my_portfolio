@@ -18,17 +18,17 @@ export default function EditorialHero() {
     y.set(((event.clientY - r.top) / r.height - .5) * 8)
   }} onPointerLeave={() => { x.set(0); y.set(0) }}>
     <motion.div className="reference-portrait" style={{ x: reduced ? 0 : sx, y: reduced ? 0 : sy }}>
-      <img src="/images/hero-neon.jpeg" alt="Mohamad Ammar with orange rim lighting against a dark background" className="hero-neon-image" fetchPriority="high" />
+      {reduced ? <img src="/images/hero-neon.jpeg" alt="Mohamad Ammar with orange rim lighting against a dark background" className="hero-neon-image" /> : <video className="hero-neon-video" autoPlay muted loop playsInline preload="metadata" poster="/images/hero-neon.jpeg" aria-hidden="true"><source src="/images/hero-motion.mp4" type="video/mp4" /></video>}
     </motion.div>
     <div className="reference-shade" />
     <div className="hero-meta">
-      <p>Data Science Undergraduate<br /><span>Applied AI &amp; Software Development</span></p>
+      <p>Data Science Undergraduate<br /><span>Data Science · AI · Web &amp; Mobile</span></p>
     </div>
     <div className="hero-main">
       <motion.div initial={{ opacity: 0, y: reduced ? 0 : 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .8 }}>
         <p className="hero-availability"><span />Available for internships &amp; freelance projects</p>
-        <h1 className="reference-title"><span>Building</span><span>intelligent</span><span className="hero-outline">software.</span></h1>
-        <p className="hero-summary">I build AI-powered tools and web and mobile applications that turn complex problems into practical solutions.</p>
+        <h1 className="reference-title"><span>From data</span><span>to useful</span><span className="hero-outline">software.</span></h1>
+        <p className="hero-summary">I turn data into predictions, automate workflows with AI, and build web and Android applications.</p>
         <a className="hero-work-link" href="#works">View selected work <Arrow /></a>
       </motion.div>
     </div>
@@ -39,5 +39,6 @@ export default function EditorialHero() {
     </div>
   </div>
 }
+
 
 
