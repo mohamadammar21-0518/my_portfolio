@@ -238,3 +238,24 @@ a:focus-visible,button:focus-visible { outline:2px solid #999; outline-offset:5p
 .intro-proof > span { display:flex; flex-direction:column; gap:8px; font-size:11px; line-height:1.5; color:#666; }
 .intro-proof strong { font-size:15px; font-weight:600; color:#242424; }
 @media(max-width:600px) { .reference-intro .editorial-bio > p { font-size:14px; }.intro-proof { grid-template-columns:1fr; gap:18px; }.intro-proof > span { flex-direction:row; justify-content:space-between; gap:16px; }.intro-proof strong { font-size:13px; flex-shrink:0; } }
+.neon-hero .reference-portrait video.hero-neon-video { object-position:72% center; }
+@media(max-width:600px) { .neon-hero .reference-portrait video.hero-neon-video { object-position:72% center; } }
+
+/* Consistent editorial covers pair source images with a readable project identity. */
+.project-card .project-cover { position:relative; display:block; height:380px; overflow:hidden; isolation:isolate; background:#172028; color:#fff; }
+.featured-project .project-card .project-cover { height:560px; }
+.project-cover-art { position:absolute; inset:0; overflow:hidden; }
+.project-cover-art img { width:100%; height:100%; object-fit:cover; object-position:center; filter:saturate(.86); transition:transform .5s ease; }
+.project-card:hover .project-cover-art img { transform:scale(1.045); }
+.project-cover:after { content:''; position:absolute; inset:0; background:linear-gradient(0deg,rgba(8,14,19,.93) 0%,rgba(8,14,19,.35) 42%,transparent 76%); pointer-events:none; }
+.project-cover-label { position:absolute; z-index:1; left:28px; right:28px; bottom:26px; display:flex; flex-direction:column; align-items:flex-start; gap:8px; }
+.project-cover-label span { padding:6px 9px; background:#ffffffdb; color:#172028; font-size:10px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; }
+.project-cover-label strong { max-width:18ch; font-size:clamp(27px,3.3vw,48px); font-weight:600; letter-spacing:-.055em; line-height:1.04; text-wrap:balance; }
+.project-cover-label small { font-size:11px; color:#d6dee0; }
+.project-cover-monogram { position:absolute; top:18%; right:8%; font-size:clamp(100px,18vw,230px); font-weight:700; letter-spacing:-.1em; color:#ffffff17; }
+.project-cover-wordbuddy { background:#393254; }.project-cover-kafe-eman { background:#51352a; }.project-cover-ai-employee-revenue-command-center { background:#25294c; }
+.project-cover-kafe-eman .project-cover-art img,.project-cover-adaptiveflow .project-cover-art img,.project-cover-aquasense .project-cover-art img,.project-cover-student-success-ai .project-cover-art img { object-position:center; }
+.project-cover-ai-employee-revenue-command-center .project-cover-art img { object-fit:contain; padding:12%; background:#f0f1f4; }
+@media(max-width:900px) { .featured-project .project-card .project-cover { height:430px; } }
+@media(max-width:600px) { .project-card .project-cover,.featured-project .project-card .project-cover { height:300px; }.project-cover-label { left:18px; right:18px; bottom:18px; }.project-cover-label strong { font-size:30px; }.project-cover-art img { object-position:center; } }
+@media(prefers-reduced-motion:reduce) { .project-cover-art img { transition:none; } }

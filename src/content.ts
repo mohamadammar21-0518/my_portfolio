@@ -181,6 +181,18 @@ export const projects = [
     overview: 'An XGBoost model trained on historical T20I data is paired with a four-tier team model. The system accounts for team strength, ICC ratings, venue history, recent form, and the statistical gap between top-ranked teams and underdogs. The Streamlit app presents win probabilities, points-table tracking, automated Super 8 groups, and knockout-stage projections.',
     focus: 'End-to-end modelling, domain-aware features, and interactive tournament simulation',
   },
+  {
+    name: 'Kafe Eman · Multi-Branch Café Platform', slug: 'kafe-eman', displayName: 'Kafe Eman', gallery: [],
+    problem: 'A multi-branch café needs a coherent customer experience and tools to manage its menu, orders, and operations.',
+    contribution: 'Built a responsive café web application with public pages, customer account flows, and an administrative dashboard.',
+    outcome: 'An MVP with a static preview mode and connected Convex and Clerk workflows when configured.',
+    highlight: 'Café commerce · Customer and admin flows', category: 'Apps & mobile',
+    status: 'MVP · In development', date: '2026', repoUrl: null, liveUrl: null,
+    tags: ['React', 'TypeScript', 'Tailwind CSS', 'Convex', 'Clerk'], image: 'kafe-eman-photo.jpg', alt: 'Representative café photograph for Kafe Eman',
+    description: 'A multi-branch café platform spanning the public website, customer accounts, and café administration.',
+    overview: 'Kafe Eman combines a café website and menu with reservation and contact pages, customer account and order flows, and an admin dashboard for branches, menu items, orders, and feedback. It uses React, TypeScript, Tailwind CSS, Framer Motion, Convex, and Clerk. The static preview shows the marketing experience; connected account, order, and admin features require the full backend configuration. AI assistance is planned rather than presented as a finished feature.',
+    focus: 'Responsive commerce UX, customer journeys, and operational tools',
+  },
 ]
 
 export const capabilities = [

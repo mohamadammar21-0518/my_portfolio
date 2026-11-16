@@ -165,7 +165,7 @@ export default function App() {
       <section id="home" ref={hero}><EditorialHero /></section>
       <section id="introduction" className="reference-intro section">
         <div className="reference-label"><span>01</span><span>/introduction</span></div>
-        <Reveal><h2 className="intro-statement">Curious about data.<br /><span>Focused on making it useful.</span></h2></Reveal>
+        <Reveal><h2 className="intro-statement">Mohamad Ammar.<br /><span>Data Science, AI &amp; Software Development.</span></h2></Reveal>
         <div className="intro-grid">
           <img src="/images/editorial-portrait.jpeg" alt="Mohamad Ammar" loading="lazy" className="intro-photo" />
           <div>
@@ -484,6 +484,7 @@ export default function App() {
     <ProjectDetail project={project} onClose={closeProject} onSelect={openProject} />
   </MotionConfig>
 }
+
 
 
 

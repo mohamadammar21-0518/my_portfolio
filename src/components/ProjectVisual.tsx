@@ -12,10 +12,16 @@ export function projectVisualCaption(project: PortfolioProject) {
 }
 
 export default function ProjectVisual({ project, eager = false }: { project: PortfolioProject; eager?: boolean }) {
-  if (project.image) return <img src={`/images/${project.image}`} alt={project.alt} loading={eager ? 'eager' : 'lazy'} />
-  return <div className="project-type-cover" aria-hidden="true">
-    <span className="cover-category">{project.category}</span>
-    <strong>{project.displayName}</strong>
-    <span className="cover-stack">{project.tags.slice(0, 3).join(' / ')}</span>
+  return <div className={`project-cover project-cover-${project.slug}`}>
+    <div className="project-cover-art">
+      {project.image
+        ? <img src={`/images/${project.image}`} alt={project.alt} loading={eager ? 'eager' : 'lazy'} />
+        : <span className="project-cover-monogram" aria-hidden="true">{project.displayName.slice(0, 2).toUpperCase()}</span>}
+    </div>
+    <div className="project-cover-label">
+      <span>{project.category}</span>
+      <strong>{project.displayName}</strong>
+      <small>{project.tags.slice(0, 2).join(' / ')}</small>
+    </div>
   </div>
 }
