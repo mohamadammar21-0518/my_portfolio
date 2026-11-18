@@ -19,7 +19,7 @@ export default function EditorialHero() {
   }} onPointerLeave={() => { x.set(0); y.set(0) }}>
     <motion.div className="reference-portrait" style={{ x: reduced ? 0 : sx, y: reduced ? 0 : sy }}>
       {!reduced && (
-        <video className="hero-neon-video" autoPlay muted loop playsInline preload="metadata" aria-hidden="true">
+        <video className="hero-neon-video" autoPlay muted loop playsInline preload="auto" aria-hidden="true">
           <source src="/images/hero-motion.mp4" type="video/mp4" />
         </video>
       )}
