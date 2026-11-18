@@ -10,8 +10,9 @@ import { capabilities, credentials, education, experience, profile, projects, qu
 const heroFocus = [
   { label: 'RAG applications', text: 'Document answers with hybrid retrieval, reranking, and page-level citations.', slug: 'docmind-ai' },
   { label: 'AI automation', text: 'Multi-agent workflows with policy checks and human review before action.', slug: 'ai-employee-revenue-command-center' },
-  { label: 'Web & mobile', text: 'Database-backed interfaces and Android applications with validation, OCR, and reviewed actions.', slug: 'tdm-insight' },
-  { label: 'Machine learning', text: 'Predictive modelling and interactive dashboards that make model outputs easier to explore.', slug: 't20-world-cup-ai' },
+  { label: 'Web development', text: 'Kafe Eman pairs a responsive café website with customer ordering and branch administration.', slug: 'kafe-eman' },
+  { label: 'Mobile development', text: 'VancoTrack is a native Android app with reviewed on-device OCR, input validation, and PDF export.', slug: 'tdm-insight' },
+  { label: 'Machine learning', text: 'The T20 Predictor uses XGBoost to estimate match-win probabilities and Streamlit to explore tournament scenarios.', slug: 't20-world-cup-ai' },
 ]
 
 const navigation = [['Work', 'works'], ['Design', 'design'], ['About', 'about'], ['Journey', 'journey'], ['Contact', 'contact']]
@@ -188,7 +189,7 @@ export default function App() {
         </Reveal>
 
         <div className="project-filters" role="group" aria-label="Filter projects by category">
-          {['All projects', ...Array.from(new Set(projects.map(item => item.category)))].map(category => (
+          {['All projects', 'Web & Mobile', 'AI & Automation', 'Data Science & ML'].map(category => (
             <motion.button
               key={category}
               type="button"

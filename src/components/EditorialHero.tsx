@@ -18,7 +18,11 @@ export default function EditorialHero() {
     y.set(((event.clientY - r.top) / r.height - .5) * 8)
   }} onPointerLeave={() => { x.set(0); y.set(0) }}>
     <motion.div className="reference-portrait" style={{ x: reduced ? 0 : sx, y: reduced ? 0 : sy }}>
-      {reduced ? <img src="/images/hero-neon.jpeg" alt="Mohamad Ammar with orange rim lighting against a dark background" className="hero-neon-image" /> : <video className="hero-neon-video" autoPlay muted loop playsInline preload="metadata" poster="/images/hero-neon.jpeg" aria-hidden="true"><source src="/images/hero-motion.mp4" type="video/mp4" /></video>}
+      {!reduced && (
+        <video className="hero-neon-video" autoPlay muted loop playsInline preload="metadata" aria-hidden="true">
+          <source src="/images/hero-motion.mp4" type="video/mp4" />
+        </video>
+      )}
     </motion.div>
     <div className="reference-shade" />
     <div className="hero-meta">

@@ -259,3 +259,15 @@ a:focus-visible,button:focus-visible { outline:2px solid #999; outline-offset:5p
 @media(max-width:900px) { .featured-project .project-card .project-cover { height:430px; } }
 @media(max-width:600px) { .project-card .project-cover,.featured-project .project-card .project-cover { height:300px; }.project-cover-label { left:18px; right:18px; bottom:18px; }.project-cover-label strong { font-size:30px; }.project-cover-art img { object-position:center; } }
 @media(prefers-reduced-motion:reduce) { .project-cover-art img { transition:none; } }
+
+.project-cover.project-cover-framed { background:radial-gradient(ellipse at 50% 18%, #405369, #111922 76%); }
+.project-cover-framed .project-cover-art { inset:6% 7% 40%; }
+.project-cover-framed .project-cover-art img { object-fit:contain; filter:none; }
+.project-cover-framed:after { background:linear-gradient(0deg,#0b141d,transparent 45%); }
+.project-cover-tdm-insight.project-cover-framed { background:radial-gradient(ellipse at 50% 18%, #255b60, #102328 76%); }
+.project-cover-wordbuddy { background:radial-gradient(ellipse at 65% 18%, #7760ac, #2b204b 78%); }
+.wordbuddy-tiles { position:absolute; top:16%; inset-inline:6%; display:flex; justify-content:center; gap:3%; }
+.wordbuddy-tiles span { display:grid; place-items:center; width:min(19%, 108px); aspect-ratio:1; border-radius:18%; background:#fff0bb; color:#382961; font-size:clamp(28px,5vw,78px); font-weight:700; box-shadow:0 8px 0 #18122b70; transform:rotate(-8deg); }
+.wordbuddy-tiles span:nth-child(even) { background:#cceee0; transform:translateY(12%) rotate(8deg); }
+.wordbuddy-tiles span:nth-child(3) { background:#ffd7db; }
+.project-cover-kafe-eman .project-cover-art img { object-position:center 42%; }

@@ -11,12 +11,25 @@ export function projectVisualCaption(project: PortfolioProject) {
   return 'Original project asset'
 }
 
+const coverScreens: Record<string, string> = {
+  'student-success-ai': 'student-success-dashboard-redacted.jpg',
+  'docmind-ai': 'docmind-chat-upload.png',
+  'tdm-insight': 'vancotrack-input-workflow.jpg',
+  't20-world-cup-ai': 't20-super-eight-predictions.png',
+}
+
 export default function ProjectVisual({ project, eager = false }: { project: PortfolioProject; eager?: boolean }) {
-  return <div className={`project-cover project-cover-${project.slug}`}>
+  const screen = project.gallery.find(item => item.image === coverScreens[project.slug])
+  const imagePath = screen ? `project-gallery/${screen.image}` : project.image
+  const framed = screen || project.slug === 'motorbike-rental-ai'
+
+  return <div className={`project-cover project-cover-${project.slug}${framed ? ' project-cover-framed' : ''}`}>
     <div className="project-cover-art">
-      {project.image
-        ? <img src={`/images/${project.image}`} alt={project.alt} loading={eager ? 'eager' : 'lazy'} />
-        : <span className="project-cover-monogram" aria-hidden="true">{project.displayName.slice(0, 2).toUpperCase()}</span>}
+      {imagePath
+        ? <img src={`/images/${imagePath}`} alt={screen?.alt ?? project.alt} loading={eager ? 'eager' : 'lazy'} />
+        : <div className="wordbuddy-tiles" aria-hidden="true">
+            <span>W</span><span>O</span><span>R</span><span>D</span>
+          </div>}
     </div>
     <div className="project-cover-label">
       <span>{project.category}</span>
