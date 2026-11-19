@@ -260,8 +260,8 @@ export default function App() {
           </Reveal>
           <Reveal delay={180}>
             <motion.article className="highlight snapshot" whileHover={reducedMotion ? undefined : { y: -6 }} transition={{ type: 'spring', stiffness: 320, damping: 24 }}>
-              <h3>Always learning.<br />Always building.</h3>
-              <motion.div className="stat-pill" whileHover={reducedMotion ? undefined : { x: 4 }}><span><strong>3.80</strong> academic CGPA</span><span aria-hidden="true">✦</span></motion.div>
+              <h3>Building practical<br />AI solutions.</h3>
+              <motion.div className="stat-pill" whileHover={reducedMotion ? undefined : { x: 4 }}><span>Generative AI Intern · Codomax</span><span aria-hidden="true">✦</span></motion.div>
               <motion.div className="stat-pill" whileHover={reducedMotion ? undefined : { x: 4 }}><span>AI, data &amp; full-stack projects</span><span aria-hidden="true">✦</span></motion.div>
               <motion.div className="stat-pill" whileHover={reducedMotion ? undefined : { x: 4 }}><span>FoTLI 2026 Silver Award · WordBuddy</span><span aria-hidden="true">✦</span></motion.div>
               <a href="#contact">Let's connect <Arrow /></a>
@@ -346,7 +346,7 @@ export default function App() {
             <div className="about-profile-story">
               <span className="about-profile-label">My approach</span>
               <h3>From data and models<br /><span>to practical applications.</span></h3>
-              <p>I study Data Science at Albukhary International University in Malaysia, with a CGPA of 3.80 / 4.00. I’m currently completing a virtual Generative AI internship with Codomax Digital Solutions and building practical AI applications.</p>
+              <p>I study Data Science at Albukhary International University in Malaysia. I’m currently completing a virtual Generative AI internship with Codomax Digital Solutions and building practical AI applications.</p>
               <p>My projects range from predictive models and document Q&amp;A to voice-driven CRM tools and native Android applications. I focus on clear interfaces, careful validation, and human review where decisions need oversight.</p>
               <div className="about-profile-facts">
                 <div><strong>3.80 <small>/ 4.00</small></strong><span>Current CGPA</span></div>
@@ -361,41 +361,31 @@ export default function App() {
 
       {/* ── Education, leadership & experience ──────────────────────── */}
       <section id="journey" className="process section">
-        <SectionDecoration variant="journey" />
         <Reveal className="split-heading">
-          <p className="section-label">Education &amp; journey</p>
-          <h2>Learning through data, product work, and community leadership. <span>My path combines Data Science studies, a Generative AI internship, hands-on projects, and mentoring young innovators.</span></h2>
+          <p className="section-label">Journey</p>
+          <h2>Education and experience. <span>From studying data science to building products and mentoring young innovators.</span></h2>
         </Reveal>
-        <div className="journey-layout">
-          <div className="journey-education">
-            <span className="process-flower" aria-hidden="true">✳</span>
-            <h3>Education</h3>
-            {education.map(item => (
-              <article className="education-card" key={item.title}>
-                <span className="journey-date">{item.date}</span>
-                <h4>{item.title}</h4>
-                <p className="journey-org">{item.institution}</p>
-                <p>{item.detail}</p>
-              </article>
-            ))}
-          </div>
-          <div className="journey-experience">
-            <h3>Leadership &amp; experience</h3>
-            {experience.map((item, i) => (
-              <Reveal key={item.title} delay={i * 70}>
-                <motion.article
-                  className="process-card journey-card"
-                  whileHover={reducedMotion ? undefined : { y: -4, borderColor: '#999999' }}
-                  transition={{ type: 'spring', stiffness: 300, damping: 24 }}
-                >
-                  <span className="journey-date">{item.date}</span>
-                  <h4>{item.title}</h4>
-                  <p className="journey-org">{item.organization}</p>
-                  <p>{item.detail}</p>
-                </motion.article>
-              </Reveal>
-            ))}
-          </div>
+        <div className="journey-tracks">
+          {[
+            { title: 'Education', id: 'journey-education-heading', entries: education.map(item => ({ ...item, context: item.institution })) },
+            { title: 'Leadership & experience', id: 'journey-experience-heading', entries: experience.map(item => ({ ...item, context: item.organization })) },
+          ].map(track => (
+            <div className="journey-track" key={track.id} role="group" aria-labelledby={track.id}>
+              <h3 id={track.id}>{track.title}</h3>
+              <ol className="journey-timeline">
+                {track.entries.map(item => (
+                  <li key={item.title}>
+                    <article>
+                      <p className="journey-entry-date">{item.date}</p>
+                      <h4>{item.title}</h4>
+                      <p className="journey-entry-context">{item.context}</p>
+                      <p className="journey-entry-detail">{item.detail}</p>
+                    </article>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          ))}
         </div>
         <div className="credentials-grid">
           {[
